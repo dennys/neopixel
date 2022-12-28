@@ -1,13 +1,10 @@
-let z = 0
-let y = 0
-let x = 0
-let strip = neopixel.create(DigitalPin.P0, 24, NeoPixelMode.RGB_RGB)
-while (true) {
-    x = input.acceleration(Dimension.X) / 2
-    y = input.acceleration(Dimension.Y) / 2
-    z = input.acceleration(Dimension.Z) / 2
-    strip.shift(1)
-    strip.setPixelColor(0, neopixel.rgb(x, y, 0 - z))
+input.onButtonPressed(Button.A, function () {
+    strip.showColor(neopixel.rgb(randint(0, 255), randint(0, 255), randint(0, 255)))
     strip.show()
-    basic.pause(100)
-}
+})
+input.onButtonPressed(Button.B, function () {
+    run = 0
+})
+let run = 0
+let strip: neopixel.Strip = null
+strip = neopixel.create(DigitalPin.P2, 24, NeoPixelMode.RGB)

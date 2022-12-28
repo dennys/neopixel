@@ -1,6 +1,15 @@
 input.onButtonPressed(Button.A, function () {
-    strip.showColor(neopixel.rgb(randint(0, 255), randint(0, 255), randint(0, 255)))
-    strip.show()
+    run = 1
+    while (run == 1) {
+        strip.showRainbow(1, 360)
+        for (let index = 0; index < 30; index++) {
+            strip.show()
+            strip.rotate(1)
+            basic.pause(200)
+        }
+    }
+    strip.showColor(neopixel.colors(NeoPixelColors.Blue))
+    strip.clear()
 })
 input.onButtonPressed(Button.B, function () {
     run = 0
